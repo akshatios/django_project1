@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block start %}
+
+    <div class="container">
+      <h1> this is sent email </h1>
+      <a href="{% url 'send_mail' %}" class="btn btn-success">Send Email</a>
+
+    </div>
+        <h1> This is index page</h1>
+
+        <a href="/contact/">
+            Contact
+        </a>
+
+        <a href="/about/">
+            About
+        </a>
+        <h1>fhdfsdk  sdfkd fksd fk </h1>
+        {{peoples}}
+        <table class="container mt-25">
+            <tr>
+              <th>S. no</th>
+              <th>name</th>
+              <th>age</th>
+              <th>can vote</th>
+            </tr>
+            {% for people in peoples %}
+            <tr>
+              <td>{{forloop.counter}}</td>
+              <td>{{people.name}}</td>
+              <td>{{people.age}}</td>
+              <td>
+                {% if people.age >= 18 %}
+                ✅
+                {% else %}
+                ❌
+                {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          </table>
+
+          <p>
+            {% if "Tomato" in vegetables %}
+                Yes, available
+            {% else %}
+                Not available
+            {% endif %}
+        </p>
+
+        <p>First vegetable: {{ vegetables.0 }}</p>
+
+        <script src="" async defer></script>
+
+{% endblock  %}%}
